@@ -1,0 +1,541 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 18px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #111827;
+  letter-spacing: -0.5px;
+}
+
+.nav-button {
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+  background: #374151;
+  transform: translateY(-1px);
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px 70px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.15;
+  margin: 0 auto 22px;
+  color: #111827;
+  letter-spacing: -1.5px;
+  max-width: 800px;
+}
+
+.hero h1 span {
+  color: #4f46e5;
+}
+
+.hero p {
+  font-size: 19px;
+  color: #667085;
+  max-width: 680px;
+  line-height: 1.7;
+  margin: 0 auto 38px;
+}
+
+.start-button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.start-button:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(79, 70, 229, 0.3);
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px 20px 70px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  width: 280px;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #eef0f4;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 18px;
+}
+
+.card p {
+  color: #667085;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.setup-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.setup-card {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  padding: 45px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eef0f4;
+}
+
+.setup-card h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  color: #111827;
+}
+
+.setup-card p {
+  color: #667085;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.setup-card label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #344054;
+  font-size: 14px;
+}
+
+.setup-card select {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  font-size: 15px;
+  background: white;
+  color: #344054;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.setup-card select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+  color: #4f46e5;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #3730a3;
+}
+
+.setup-start {
+  width: 100%;
+  margin-top: 32px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.interview-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 55px 20px;
+}
+
+.interview-card {
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.interview-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #667085;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.progress {
+  height: 9px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 35px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #4f46e5;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.question-box {
+  background: linear-gradient(135deg, #f5f7ff, #eef2ff);
+  padding: 32px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  border: 1px solid #e0e4ff;
+}
+
+.question-label {
+  display: inline-block;
+  font-size: 12px;
+  color: #4f46e5;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.question-box h2 {
+  font-size: 26px;
+  margin: 0;
+  color: #111827;
+  line-height: 1.5;
+}
+
+.answer-label {
+  display: block;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.interview-card textarea {
+  width: 100%;
+  min-height: 170px;
+  padding: 16px;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  resize: vertical;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interview-card textarea:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.submit-button {
+  width: 100%;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.feedback-box {
+  background: #f0fdf4;
+  padding: 25px;
+  border-radius: 14px;
+  margin-top: 22px;
+  border: 1px solid #bbf7d0;
+  border-left: 5px solid #16a34a;
+}
+
+.feedback-box h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #166534;
+}
+
+.feedback-box p {
+  color: #374151;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.complete-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.complete-card {
+  background: white;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
+
+.success-icon {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dcfce7;
+  color: #16a34a;
+  border-radius: 50%;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .nav-button {
+    padding: 9px 15px;
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 70px 20px 50px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .features {
+    padding: 20px 20px 50px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .setup-page {
+    padding: 30px 15px;
+  }
+
+  .setup-card {
+    padding: 30px 22px;
+  }
+
+  .setup-card h1 {
+    font-size: 26px;
+  }
+
+  .interview-page {
+    padding: 30px 15px;
+  }
+
+  .interview-card {
+    padding: 25px 20px;
+  }
+
+  .question-box {
+    padding: 24px 20px;
+  }
+
+  .question-box h2 {
+    font-size: 22px;
+  }
+
+  .complete-page {
+    padding: 25px 15px;
+  }
+
+  .complete-card {
+    padding: 30px 20px;
+  }
+
+  .complete-card > h1 {
+    font-size: 27px;
+  }
+
+  .overall-score h2 {
+    font-size: 24px;
+  }
+
+  .result-card {
+    padding: 20px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 14px 15px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .nav-button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 55px 15px 40px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .start-button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .setup-card {
+    padding: 25px 18px;
+  }
+
+  .setup-card h1 {
+    font-size: 24px;
+  }
+
+  .interview-card {
+    padding: 20px 15px;
+  }
+
+  .interview-top {
+    font-size: 13px;
+  }
+
+  .question-box {
+    padding: 20px 16px;
+  }
+
+  .question-box h2 {
+    font-size: 20px;
+  }
+
+  .interview-card textarea {
+    min-height: 150px;
+    font-size: 15px;
+  }
+
+  .complete-card {
+    padding: 28px 16px;
+  }
+
+  .result-card {
+    padding: 17px;
+  }
+}
