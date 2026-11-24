@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import './App.css'
 async function testBackend() {
   try {
-    const response = await fetch("http://127.0.0.1:8001/");
+    const response = await fetch("https://ai-interview-coach-n2p2.vercel.app/");
     const data = await response.json();
     console.log(data);
   } catch (error) {
@@ -25,7 +25,7 @@ function App() {
    async function getQuestions() {
     try {
 
-      const response = await fetch("http://127.0.0.1:8001/questions");
+      const response = await fetch("https://ai-interview-coach-n2p2.vercel.app/questions");
       const data = await response.json();
       console.log(data.questions);
       setQuestions(data.questions);
@@ -67,7 +67,7 @@ function App() {
   try {
     setLoading(true)
     console.log("Submitting answer...")
-      const response = await fetch("http://127.0.0.1:8001/feedback", {
+      const response = await fetch("https://ai-interview-coach-n2p2.vercel.app/feedback", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
