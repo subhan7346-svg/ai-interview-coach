@@ -3,14 +3,14 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from dotenv import load_dotenv
-from openai import OpenAI
+from google import genai
 import requests
 class AnswerRequest(BaseModel):
     question: str
     answer: str
 
 load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 app = FastAPI()
 
 
@@ -91,19 +91,13 @@ Be fair when giving the score.
 Keep the feedback concise and professional.
 """
 
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ],
-            temperature=0.7
+        response = client.models.generate_content(
+            model="gemini-3.8-flash",
+            contents=prompt
         )
 
         return {
-            "feedback": response.choices[0].message.content
+            "feedback": response.text
         }
 
     except Exception as e:
