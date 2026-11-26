@@ -3,14 +3,17 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from dotenv import load_dotenv
-from google import genai
+from openai import OpenAI
 import requests
 class AnswerRequest(BaseModel):
     question: str
     answer: str
 
 load_dotenv()
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = OpenAI(
+    api_key=os.getenv("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1"
+)
 app = FastAPI()
 
 
@@ -56,7 +59,7 @@ def get_questions():
 def get_feedback(data: AnswerRequest):
     try:
         prompt = f"""
-You are an AI interview coach.
+You are a professional AI interview coach.
 
 Interview question:
 {data.question}
@@ -64,9 +67,9 @@ Interview question:
 Candidate answer:
 {data.answer}
 
-Evaluate the candidate's interview answer.
+Evaluate the candidate's answer.
 
-Give short, helpful feedback in simple English.
+Give helpful feedback in simple English.
 
 Include:
 1. Score out of 10
@@ -74,30 +77,22 @@ Include:
 3. What could be improved
 4. A better example answer
 
-Use this exact format:
-
-Score: X/10
-
-What was good:
-Your feedback here.
-
-What could be improved:
-Your feedback here.
-
-Better example answer:
-Your improved answer here.
-
-Be fair when giving the score.
-Keep the feedback concise and professional.
+Be fair, concise and professional.
 """
 
-        response = client.models.generate_content(
-            model="gemini-3.5-flash",
-            contents=prompt
+        response = client.chat.completions.create(
+            model="openai/gpt-oss-120b",
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            max_tokens=1000
         )
 
         return {
-            "feedback": response.text
+            "feedback": response.choices[0].message.content
         }
 
     except Exception as e:
